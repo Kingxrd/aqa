@@ -59,6 +59,32 @@ test('Cross Login test', async ({ page }) => {
   await loginPage.checkFailedPassword()
 });
 
+test('Registry Login aqa', async ({ page }) => {
+  const loginPage = new LoginPage(page)
+  await loginPage.gotoLoginPage()
+  await loginPage.eneterUsername('AQA')
+  await loginPage.eneterPassword('AQA123')
+  await loginPage.clickLogin()
+  await loginPage.checkFailedLogin()
+});
+
+test('Registry Login admin', async ({ page }) => {
+  const loginPage = new LoginPage(page)
+  await loginPage.gotoLoginPage()
+  await loginPage.eneterUsername('admin')
+  await loginPage.eneterPassword('ADMIN')
+  await loginPage.clickLogin()
+  await loginPage.checkFailedPassword()
+});
+
+test('Registry Login test', async ({ page }) => {
+  const loginPage = new LoginPage(page)
+  await loginPage.gotoLoginPage()
+  await loginPage.eneterUsername('TEST')
+  await loginPage.eneterPassword('test123')
+  await loginPage.clickLogin()
+  await loginPage.checkFailedLogin()
+});
 
 test('Login with Space', async ({ page }) => {
   const loginPage = new LoginPage(page)
